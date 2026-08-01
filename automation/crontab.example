@@ -1,0 +1,13 @@
+# [ORG_NAME]: weekly content pipeline schedule (timing reference)
+#
+# The pipeline is scheduled inside Cowork's built-in "Scheduled" feature, NOT via a
+# system crontab. This file just records the intended timing in standard cron syntax
+# so it is unambiguous: configure the Cowork Scheduled task to match it.
+#
+# 4:00 AM every Wednesday, local timezone.
+# Generates the upcoming week's drafts so [PERSON_NAME] can approve before the following week.
+#
+# minute hour day-of-month month day-of-week
+  0      4    *            *     3
+#
+# Instruction the scheduled task runs: automation/weekly-pipeline.md

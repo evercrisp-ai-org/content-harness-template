@@ -1,0 +1,15 @@
+{
+  "name": "content-harness",
+  "version": "1.0.0",
+  "description": "A generic, client-agnostic content production harness: eight Claude Code skills that onboard a new client's brand/voice/channel config, load that brand context, enforce every production rule, gate quality, produce on-voice content across whatever channels the client actually wants, and learn from corrections over time. Invoke a skill by name, e.g. /onboard, /generate-batch, /validate, /linkedin-check, /retro. Ships with zero channels configured and placeholder brand docs — run /onboard first. Requires the Project to be linked to a folder containing brand/, rules/, src/, outputs/ for the skills to read the brand docs.",
+  "author": {
+    "name": "evercrisp.ai"
+  },
+  "keywords": [
+    "content",
+    "brand-voice",
+    "client-onboarding",
+    "content-harness",
+    "template"
+  ]
+}

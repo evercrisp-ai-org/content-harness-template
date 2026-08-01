@@ -1,0 +1,17 @@
+{
+  "name": "content-harness-template",
+  "owner": {
+    "name": "evercrisp.ai"
+  },
+  "metadata": {
+    "description": "A generic, client-agnostic content-production harness — fork this repo per client, run /onboard, and get a full weekly content pipeline for whatever channels that client wants.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "content-harness",
+      "source": "./plugin",
+      "description": "Eight skills (onboard, generate-batch, validate, linkedin-check, image-brief, voice-check, research-scan, retro) that onboard a client's brand/channel config, load the brand context, enforce every production rule, gate quality, produce on-voice content, and learn from corrections over time via the weekly retro pass. Requires the Project/working folder to contain brand/, rules/, src/, outputs/."
+    }
+  ]
+}

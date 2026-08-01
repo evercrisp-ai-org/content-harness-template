@@ -1,0 +1,211 @@
+{
+  "brand_name": "[ORG_NAME]",
+  "tagline": "[TAGLINE]",
+  "version": "1.0",
+
+  "colors": {
+    "primary": {
+      "name": "[Primary Color Name]",
+      "hex": "[PRIMARY_HEX]",
+      "rgb": [0, 0, 0],
+      "usage": "Hero backgrounds, headers, dark emphasis sections"
+    },
+    "secondary": {
+      "name": "[Secondary Color Name]",
+      "hex": "[SECONDARY_HEX]",
+      "rgb": [0, 0, 0],
+      "usage": "Supporting backgrounds, cards, subtle contrast blocks"
+    },
+    "accent": {
+      "name": "[Accent Color Name]",
+      "hex": "[ACCENT_HEX]",
+      "rgb": [0, 0, 0],
+      "usage": "Buttons, links, icons, highlights (use sparingly, 10-12% max)"
+    },
+    "neutral_light": {
+      "name": "[Light Neutral Name]",
+      "hex": "[LIGHT_NEUTRAL_HEX]",
+      "rgb": [0, 0, 0],
+      "usage": "Default content backgrounds"
+    },
+    "neutral_dark": {
+      "name": "[Dark Neutral Name]",
+      "hex": "[DARK_NEUTRAL_HEX]",
+      "rgb": [0, 0, 0],
+      "usage": "Primary body text on light backgrounds"
+    },
+    "neutral_mid": {
+      "name": "[Mid Neutral Name]",
+      "hex": "[MID_NEUTRAL_HEX]",
+      "rgb": [0, 0, 0],
+      "usage": "Secondary text, strokes/dividers, captions/metadata"
+    }
+  },
+
+  "color_ratio": {
+    "primary": 60,
+    "secondary_neutrals": 30,
+    "accent": 10,
+    "description": "60-30-10 guideline: 60% Primary, 30% Secondary/Neutrals, 10% Accent"
+  },
+
+  "typography": {
+    "heading": {
+      "family": "[HEADING_FONT]",
+      "weights": [400, 500, 600],
+      "style": "serif",
+      "files": {
+        "400": "fonts/[HEADING_FONT]-Regular.ttf",
+        "500": "fonts/[HEADING_FONT]-Medium.ttf",
+        "600": "fonts/[HEADING_FONT]-SemiBold.ttf"
+      }
+    },
+    "body": {
+      "family": "[BODY_FONT]",
+      "weights": [400, 500, 600],
+      "style": "sans-serif",
+      "files": {
+        "400": "fonts/[BODY_FONT]-Regular.ttf",
+        "500": "fonts/[BODY_FONT]-Medium.ttf",
+        "600": "fonts/[BODY_FONT]-SemiBold.ttf"
+      }
+    }
+  },
+
+  "type_scale": {
+    "h1_hero": {
+      "font": "heading",
+      "weight": 600,
+      "size_px": [52, 64],
+      "usage": "Primary page headlines"
+    },
+    "h2": {
+      "font": "heading",
+      "weight": 500,
+      "size_px": [36, 44],
+      "usage": "Section headers"
+    },
+    "h3": {
+      "font": "heading",
+      "weight": 400,
+      "size_px": [26, 30],
+      "usage": "Subsections"
+    },
+    "body": {
+      "font": "body",
+      "weight": 400,
+      "size_px": [17, 18],
+      "usage": "Primary reading text"
+    },
+    "lead": {
+      "font": "body",
+      "weight": 500,
+      "size_px": [18, 20],
+      "usage": "Intro emphasis"
+    }
+  },
+
+  "voice_and_tone": {
+    "attributes": [
+      "[Attribute 1, e.g., Calm and composed]",
+      "[Attribute 2, e.g., Clear and structured]",
+      "[Attribute 3, e.g., Direct, not verbose]",
+      "[Attribute 4, e.g., Professional, not academic]",
+      "[Attribute 5, e.g., Authoritative without being promotional]"
+    ],
+    "tone_by_context": {
+      "educational": "[e.g., Neutral, explanatory, clarity-first]",
+      "advisory": "[e.g., Confident, reassuring, acknowledges complexity]",
+      "cta": "[e.g., Calm, invitational, conversation-focused]"
+    },
+    "language_to_use": [
+      "[Preferred word/phrase 1]",
+      "[Preferred word/phrase 2]",
+      "[Preferred word/phrase 3]",
+      "[Preferred word/phrase 4]"
+    ],
+    "language_to_avoid": [
+      "Em dashes (use commas, periods, parentheses, or colons instead)",
+      "'It's not X. It's Y.' pivot construction (weave contrarian reframes naturally)",
+      "Delve, landscape, navigate, crucial, realm, foster, robust",
+      "[Add org-specific banned words/phrases]"
+    ],
+    "final_rule": "If it sounds like [WHAT_TO_AVOID], rewrite it. If it sounds like [WHAT_TO_MATCH], it's correct."
+  },
+
+  "imagery": {
+    "audience_context": "[AUDIENCE] description for image generation context",
+    "tone": "[e.g., Confidence, composure, long-term thinking]",
+    "people_imagery": {
+      "percentage": 50,
+      "characteristics": [
+        "[Characteristic 1, e.g., Professional, reflecting seniority]",
+        "[Characteristic 2, e.g., Demographics reflecting audience realities]",
+        "[Characteristic 3, e.g., Professional environments]",
+        "[Characteristic 4, e.g., Natural lighting, calm expressions]"
+      ]
+    },
+    "environment_imagery": {
+      "percentage": 50,
+      "examples": [
+        "[Environment 1, e.g., Professional office interiors]",
+        "[Environment 2, e.g., Architectural exteriors]",
+        "[Environment 3, e.g., Landscapes suggesting openness]"
+      ],
+      "color_treatment": "Muted and neutral; imagery should not overpower typography or brand colors"
+    },
+    "disallowed": [
+      "[Disallowed 1, e.g., Generic stock photography]",
+      "[Disallowed 2, e.g., Cartoon or illustrated figures]",
+      "[Disallowed 3, e.g., Overly dramatic lighting]",
+      "[Disallowed 4, e.g., Flashy luxury imagery]"
+    ],
+    "final_rule": "If removing an image improves clarity, the image should not be used. White space is always acceptable.",
+    "social_image_specs": {
+      "linkedin": { "width": 1080, "height": 1080, "unit": "px" },
+      "facebook": { "width": 1200, "height": 630, "unit": "px" },
+      "blog_hero": { "width": 1200, "height": 628, "unit": "px" },
+      "youtube_thumbnail": { "width": 1280, "height": 720, "unit": "px" }
+    }
+  },
+
+  "channel_config": {
+    "channels": [
+      {
+        "name": "[Channel 1, e.g., Blog]",
+        "active": true,
+        "posts_per_week": 1,
+        "format": "[e.g., Long-form article]",
+        "tone_notes": "[e.g., Full voice; signs off with SIGN_OFF_PHRASE]",
+        "dimensions": { "width": 1200, "height": 628 }
+      },
+      {
+        "name": "[Channel 2, e.g., LinkedIn]",
+        "active": true,
+        "posts_per_week": 5,
+        "format": "[e.g., Professional insight posts]",
+        "tone_notes": "[e.g., Professional, direct, no sign-off]",
+        "dimensions": { "width": 1080, "height": 1080 }
+      }
+    ]
+  },
+
+  "compliance": {
+    "rules": [
+      "[COMPLIANCE_RULE_1]",
+      "[COMPLIANCE_RULE_2]"
+    ],
+    "required_disclaimers": [
+      "[REQUIRED_DISCLAIMERS]"
+    ]
+  },
+
+  "page_dimensions": {
+    "pdf_report": {
+      "width": 816,
+      "height": 1056,
+      "unit": "px",
+      "description": "US Letter at 96 DPI (8.5 x 11 inches)"
+    }
+  }
+}

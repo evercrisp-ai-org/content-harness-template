@@ -1,0 +1,81 @@
+---
+description: Weekly content production standards for [ORG_NAME] content batches. Defines required volume, formats, file naming, and quality gates.
+globs: outputs/drafts/content-batch-*/**/*.md
+alwaysApply: false
+---
+
+# Content Production Batch Standards
+
+## Weekly Content Volume
+
+Every week in a production batch must match the channel configuration defined in `brand/brand_config.json` `channel_config`. The default structure is:
+
+| Channel | Pieces per Week | Format |
+|---------|----------------|--------|
+| [Channel 1] | [N] | [Format description] |
+| [Channel 2] | [N] | [Format description] |
+| [Channel 3] | [N] | [Format description] |
+
+Update this table to match your `channel_config` after integration.
+
+Derivative content (e.g., short-form clips from podcast/video) is not net-new creation. Clip count varies organically; do not force clips to hit a number.
+
+## File Naming Convention
+
+```
+week-N-channel-slug.md
+week-N-channel-N.md
+```
+
+Examples:
+```
+week-1-blog-topic-slug.md
+week-1-linkedin-1.md through week-1-linkedin-3.md (or match your brand's LinkedIn volume; Capable Wealth uses 3 + optional native video)
+week-1-facebook-1.md through week-1-facebook-5.md
+week-1-podcast-topic-slug.md
+week-1-clip-1.md through week-1-clip-5.md
+```
+
+## File Template (All Content Types)
+
+1. **Title** (H1)
+2. **Post Metadata** -- Type, Week, Theme, Quarterly plan reference, Strategic context, Story classifications used
+3. **Visual Assets** -- Image type, Rationale, AI image prompt (9-point standard, brand palette only), Text overlay, Platform/dimensions
+4. **Clip Extraction Map** (podcast/video scripts only) -- 2-5 clip candidates with source segment, hook line, core insight, platform tags, estimated duration
+5. **Full content draft** -- Voice owner's voice per voice-profile.md and content-recipe.md
+6. **Quality Checklist** -- Voice Alignment, Audience Specificity, Relevance Validation, Pull Signal Design, Visual Assets, Content Integrity, Compliance
+
+## Image Type Variety
+
+Each week's social posts must use a mix of visual styles. A feed of identical cards is not acceptable.
+
+| Post # | Required Image Type |
+|--------|-------------------|
+| 1 of 5 | Stat highlight card OR quote card |
+| 2 of 5 | Conceptual photograph (photorealistic) |
+| 3 of 5 | Simple infographic or data visualization |
+| 4 of 5 | Conceptual photograph (different subject from #2) |
+| 5 of 5 | Any type not already used this week |
+
+Hard rules:
+- Max 1 text-on-block card per 5 posts per platform per week
+- Conceptual photographs must be photorealistic, never cartoon or illustrated
+- Each week's images must look visually distinct when viewed as a set
+
+## Social Post Expansion
+
+When the quarterly plan briefs fewer posts than the channel requires, create additional posts by:
+- Isolating individual talking points from anchor content as standalone insights
+- Creating story-driven variations
+- Adding action prompts or engagement questions
+- Building week-to-week narrative continuity
+
+## Content Integrity
+
+Before drafting any content, read `brand/experience-inventory.md`. All client stories, experience claims, and case studies must comply with the Content Integrity Filter (content-recipe.md Section 5.1).
+
+Key requirements:
+- Every story must be classified as `[REAL-ANONYMIZED]`, `[ILLUSTRATIVE]`, or `[GENERAL-PRINCIPLE]`
+- Classifications must be listed in Post Metadata
+- Illustrative examples must use approved framing language
+- If the experience inventory is unpopulated, all stories default to `[ILLUSTRATIVE]`

@@ -1,0 +1,99 @@
+---
+description: Content integrity standards for [ORG_NAME]. Enforces accuracy, compliance, and honest framing in all content by requiring story classification, prohibiting fabricated claims, and mandating cross-reference against the experience inventory.
+globs: outputs/drafts/**/*.md
+alwaysApply: false
+---
+
+# Content Integrity Standards
+
+Every piece of [ORG_NAME] content must be true, compliant, and resonant. This rule governs the accuracy and honesty of all claims, stories, and examples.
+
+**Mandatory reference before drafting:** Read `brand/experience-inventory.md` before writing any content. Every client story, experience claim, and authority statement must be traceable to that document.
+
+## Story Classification System
+
+Every client story, case study, or example must carry one of three classifications. The classification appears in Post Metadata under "Story classifications used."
+
+### [REAL-ANONYMIZED]
+
+A story based on a verified entry in `brand/experience-inventory.md` Section 4.
+
+**Requirements:**
+- Must trace to a specific entry in the experience inventory
+- Details may be adjusted for anonymization but must remain proportionally realistic
+- May use phrases like "a client I work with" or "someone I advise"
+
+### [ILLUSTRATIVE]
+
+A constructed example using realistic but hypothetical numbers.
+
+**Requirements:**
+- Must be framed with language that signals the example is hypothetical
+- Approved framing: "Consider a [AUDIENCE member]..." / "Here's how this might look..." / "Let's walk through a scenario..."
+- Must NOT use language implying a real advisory relationship
+- Must NOT use specific temporal references implying recent real work
+
+### [GENERAL-PRINCIPLE]
+
+A statement of principle or industry observation without a specific client narrative.
+
+**Requirements:**
+- Frame as expertise-based authority
+- Does not require an experience inventory reference
+
+## Prohibited Patterns
+
+### Fabricated temporal references
+Phrases like "last Tuesday," "last week," "a few weeks ago" that imply a recent real client interaction.
+
+**Exception:** Permitted only in `[REAL-ANONYMIZED]` stories where the experience inventory confirms a real engagement in that timeframe.
+
+### Fabricated relationship duration claims
+Phrases like "a client I've worked with for five years" or "in my years working with [AUDIENCE]."
+
+**Exception:** Permitted only when the experience inventory confirms the claimed duration.
+
+### Fabricated pseudonymous characters
+Assigning names or identity markers specific enough to imply a real person, when no corresponding verified story exists.
+
+**Exception:** Permitted in `[ILLUSTRATIVE]` examples if explicitly introduced as hypothetical.
+
+### Unverified experience-pattern claims
+Phrases like "in my experience working with [AUDIENCE]," "more than half my clients," "I see this fairly often."
+
+**Exception:** Permitted only when the experience inventory confirms the claimed pattern.
+
+## Compliance Guardrails
+
+1. **[COMPLIANCE_RULE_1]:** [Description]
+2. **[COMPLIANCE_RULE_2]:** [Description]
+3. **[REQUIRED_DISCLAIMERS]:** [Description]
+4. Forward-looking projections must be framed as illustrative, not promissory.
+
+[Add industry-specific rules from Recalibrating Interview Section 7.]
+
+## Content Integrity Checklist
+
+This checklist must appear in every draft's Quality Checklist section:
+
+```
+### Content Integrity
+- [ ] Every client story is classified: [REAL-ANONYMIZED], [ILLUSTRATIVE], or [GENERAL-PRINCIPLE]
+- [ ] Story classifications listed in Post Metadata
+- [ ] All [REAL-ANONYMIZED] stories trace to experience-inventory.md
+- [ ] All [ILLUSTRATIVE] examples use approved framing language
+- [ ] No fabricated claims or experience-pattern claims without inventory support
+- [ ] No implied guarantees of specific outcomes
+- [ ] Compliance rules satisfied
+- [ ] Forward-looking projections include qualifying language
+```
+
+## When the Inventory Is Unpopulated
+
+If `brand/experience-inventory.md` has not yet been populated:
+
+1. All client stories default to `[ILLUSTRATIVE]` classification
+2. All illustrative stories must use approved framing language
+3. Authority claims must use knowledge-based framing
+4. Personal anecdotes from the voice profile remain available
+5. No experience-pattern claims are permitted

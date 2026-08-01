@@ -1,0 +1,65 @@
+---
+description: Enforces temporal alignment between content topics and their scheduled publication dates. Content must never claim an event has occurred if the publication week predates it.
+globs: outputs/drafts/content-batch-*/**/*.md
+alwaysApply: false
+---
+
+# Content-Date Temporal Alignment
+
+## Core Rule
+
+Every content piece's topic, title, and body text must be validated against its scheduled publication week dates. Content must be temporally honest: it must not reference events, deadlines, or data as having occurred if the publication week predates them.
+
+## Key Dates and Deadlines
+
+[Replace with your organization's key dates from the Recalibrating Interview Section 8 and content-calendar.md.]
+
+- [KEY_DEADLINE_1]: [Date and description]
+- [KEY_DEADLINE_2]: [Date and description]
+- [KEY_DEADLINE_3]: [Date and description]
+
+## Fiscal Quarter Boundaries
+
+- Q1 closes [March 31 / or your fiscal quarter end]
+- Q2 closes [June 30 / or your fiscal quarter end]
+- Q3 closes [September 30 / or your fiscal quarter end]
+- Q4 closes [December 31 / or your fiscal quarter end]
+
+Never reference quarterly data as "in," "available," or "complete" before the quarter closes. Use forward-looking framing: "as Q[N] wraps up," "before Q[N] closes."
+
+## Date-Sensitive Content Rules
+
+1. **Deadline-referenced content** should publish 2-4 weeks before the deadline.
+
+2. **Post-deadline content** (e.g., "the window just opened") must not publish before the deadline date.
+
+3. **Quarterly review content** (e.g., "your Q[N] numbers are in") must not publish before the quarter has closed.
+
+4. **Event-timed content** should align with actual event dates.
+
+## When Dates Shift
+
+If publication dates are adjusted, audit every content piece in the affected range for:
+
+- Titles that reference specific timing
+- Body text that assumes a position in the calendar
+- Quality checklist entries referencing specific date ranges
+- Social post text with date-specific references
+
+## Cross-Reference Requirement
+
+When generating or reviewing content, cross-reference publication week dates against:
+
+- `brand/content-calendar.md` Layer 1 for deadline alignment
+- The current quarterly plan for the authoritative week-to-date mapping
+- The fiscal quarter boundaries above
+
+## Validation Checklist
+
+Before finalizing any content piece:
+
+- [ ] No claims that a period has closed before its actual close date
+- [ ] No references to deadlines as "next week" unless publication is actually the week before
+- [ ] No post-event framing used before the event has occurred
+- [ ] Forward-looking framing used for events that fall after the publication week
+- [ ] All "this week" and "next week" references are accurate for the publication date range

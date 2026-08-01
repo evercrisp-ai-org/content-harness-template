@@ -1,0 +1,210 @@
+{
+  "name": "[ORG_NAME] - Image Generation on Summary Sheet",
+  "meta": {
+    "_comment": "SHIPPED 2026-07-26 (built by Dave). This mirrors the real, working n8n workflow: Watch Summary Sheet Folder -> Read Summary Sheet -> Get prompt -> Get parent folder -> Generate an image -> Base64 to Binary File -> Drop Image in Copy Folder -> Send a message (Slack). Fill in REPLACE_ME_ credential/folder/channel values for your own n8n instance; no real secrets are stored in this file. As of 2026-07-27, generate-batch's Step 7.5 places the summary sheet automatically (see automation/drive_config.json's summary_sheets_folder_id); REPLACE_ME_SUMMARY_SHEET_FOLDER_ID below must match that same folder ID exactly, or this trigger never fires."
+  },
+  "nodes": [
+    {
+      "id": "trigger-01",
+      "name": "Watch Summary Sheet Folder",
+      "type": "n8n-nodes-base.googleDriveTrigger",
+      "typeVersion": 1,
+      "position": [160, 400],
+      "parameters": {
+        "triggerOn": "specificFolder",
+        "folderToWatch": {
+          "__rl": true,
+          "value": "REPLACE_ME_SUMMARY_SHEET_FOLDER_ID",
+          "mode": "id"
+        },
+        "event": "fileCreated",
+        "options": {
+          "fileType": "spreadsheet"
+        }
+      },
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "REPLACE_ME_GOOGLE_DRIVE_CREDENTIAL_ID",
+          "name": "REPLACE_ME_GOOGLE_DRIVE_CREDENTIAL_NAME"
+        }
+      }
+    },
+    {
+      "id": "read-sheet-02",
+      "name": "Read Summary Sheet",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [380, 400],
+      "notes": "Reads every row (one per content piece - blog, podcast, clips, LinkedIn, Facebook) from the new sheet. Columns match the existing content-batch-summary.xlsx layout: File, Platform, Title, Type, Week, Theme, Publish Day, Word Count, Relevance Score, Story Classification, Strategic Context, Content Preview, Image Prompt. 'File' is a Google Doc URL, not a folder ID - that's why the next steps resolve the folder from it.",
+      "parameters": {
+        "operation": "read",
+        "documentId": {
+          "__rl": true,
+          "value": "={{ $json.id }}",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "REPLACE_ME_SHEET_TAB_NAME_OR_GID",
+          "mode": "list"
+        },
+        "options": {}
+      },
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "REPLACE_ME_GOOGLE_DRIVE_CREDENTIAL_ID",
+          "name": "REPLACE_ME_GOOGLE_DRIVE_CREDENTIAL_NAME"
+        }
+      }
+    },
+    {
+      "id": "get-prompt-03",
+      "name": "Get prompt",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [600, 400],
+      "notes": "Extracts the Doc file ID out of the 'File' column URL (the part between /d/ and the next /) so the next node can look up its parent folder. Passes the Image Prompt straight through for the OpenAI node.",
+      "parameters": {
+        "jsCode": "const out = [];\nfor (const item of $input.all()) {\n  const fileUrl = item.json.File || '';\n  const match = fileUrl.match(/\\/d\\/([a-zA-Z0-9_-]+)/);\n  const docId = match ? match[1] : null;\n  out.push({\n    json: {\n      ...item.json,\n      docId,\n      prompt: item.json['Image Prompt'],\n    },\n  });\n}\nreturn out;"
+      }
+    },
+    {
+      "id": "get-parent-folder-04",
+      "name": "Get parent folder",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [820, 400],
+      "notes": "Looks up the copy Doc's parent folder via the Drive API, since the summary sheet only has a Doc link, not a folder ID. Reuses the Google Drive OAuth2 credential as a predefined credential type on this HTTP Request node, so no separate auth is needed.",
+      "parameters": {
+        "method": "GET",
+        "url": "=https://www.googleapis.com/drive/v3/files/{{ $json.docId }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "googleDriveOAuth2Api",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            { "name": "fields", "value": "id,name,parents" }
+          ]
+        },
+        "options": {}
+      },
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "REPLACE_ME_GOOGLE_DRIVE_CREDENTIAL_ID",
+          "name": "REPLACE_ME_GOOGLE_DRIVE_CREDENTIAL_NAME"
+        }
+      }
+    },
+    {
+      "id": "openai-05",
+      "name": "Generate an image",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [1040, 400],
+      "notes": "n8n's built-in OpenAI node, Image > Generate Image operation. Prompt is read from the earlier 'Get prompt' node by name so it survives the Get-parent-folder hop.",
+      "parameters": {
+        "resource": "image",
+        "operation": "generate",
+        "prompt": "={{ $('Get prompt').item.json.prompt }}",
+        "options": {}
+      },
+      "credentials": {
+        "openAiApi": {
+          "id": "REPLACE_ME_OPENAI_CREDENTIAL_ID",
+          "name": "REPLACE_ME_OPENAI_CREDENTIAL_NAME"
+        }
+      }
+    },
+    {
+      "id": "decode-06",
+      "name": "Base64 to Binary File",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1260, 400],
+      "notes": "Builds each item's binary PNG and, critically, carries targetFolderId forward by looking the row back up by index via 'Get parent folder' rather than trusting the OpenAI node to have preserved it.",
+      "parameters": {
+        "jsCode": "const out = [];\nconst items = $input.all();\nfor (let i = 0; i < items.length; i++) {\n  const item = items[i];\n  const row = $('Get parent folder').all()[i]?.json || {};\n  const targetFolderId = row.parents?.[0];\n  const filename = `image_${i + 1}.png`;\n\n  if (item.binary?.data) {\n    out.push({\n      json: { filename, targetFolderId },\n      binary: { data: { ...item.binary.data, fileName: filename, mimeType: 'image/png' } },\n    });\n    continue;\n  }\n\n  const b64 = item.json?.data?.[0]?.b64_json;\n  if (!b64) continue; // OpenAI call failed or returned no image; nothing to upload\n  const buffer = Buffer.from(b64, 'base64');\n  out.push({\n    json: { filename, targetFolderId },\n    binary: { data: await this.helpers.prepareBinaryData(buffer, filename, 'image/png') },\n  });\n}\nreturn out;"
+      }
+    },
+    {
+      "id": "upload-07",
+      "name": "Drop Image in Copy Folder",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [1480, 400],
+      "notes": "Uploads into the folder resolved two steps back. The response includes the file's own 'parents' array, which the Slack step reuses directly instead of needing a separately-threaded folder-ID variable.",
+      "parameters": {
+        "resource": "file",
+        "operation": "upload",
+        "name": "={{ $json.filename }}",
+        "driveId": { "__rl": true, "value": "My Drive", "mode": "list" },
+        "folderId": {
+          "__rl": true,
+          "value": "={{ $json.targetFolderId }}",
+          "mode": "id"
+        },
+        "binaryDataUpstream": true,
+        "options": {}
+      },
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "REPLACE_ME_GOOGLE_DRIVE_CREDENTIAL_ID",
+          "name": "REPLACE_ME_GOOGLE_DRIVE_CREDENTIAL_NAME"
+        }
+      }
+    },
+    {
+      "id": "slack-08",
+      "name": "Send a message",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.3,
+      "position": [1700, 400],
+      "notes": "Notifies a human once the image is actually in Drive. Message references the original sheet row (by node name) for the Platform label, and the just-created file's own parents[0] for the folder link - both pulled from prior nodes, not threaded state.",
+      "parameters": {
+        "resource": "message",
+        "operation": "post",
+        "select": "user",
+        "user": {
+          "__rl": true,
+          "value": "REPLACE_ME_SLACK_USER_ID",
+          "mode": "list"
+        },
+        "text": "=Your {{ $('Read Summary Sheet').item.json.Platform }} content is ready and is uploaded to: https://drive.google.com/drive/folders/{{ $json.parents[0] }}",
+        "otherOptions": {}
+      },
+      "credentials": {
+        "slackApi": {
+          "id": "REPLACE_ME_SLACK_CREDENTIAL_ID",
+          "name": "REPLACE_ME_SLACK_CREDENTIAL_NAME"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Watch Summary Sheet Folder": {
+      "main": [[{ "node": "Read Summary Sheet", "type": "main", "index": 0 }]]
+    },
+    "Read Summary Sheet": {
+      "main": [[{ "node": "Get prompt", "type": "main", "index": 0 }]]
+    },
+    "Get prompt": {
+      "main": [[{ "node": "Get parent folder", "type": "main", "index": 0 }]]
+    },
+    "Get parent folder": {
+      "main": [[{ "node": "Generate an image", "type": "main", "index": 0 }]]
+    },
+    "Generate an image": {
+      "main": [[{ "node": "Base64 to Binary File", "type": "main", "index": 0 }]]
+    },
+    "Base64 to Binary File": {
+      "main": [[{ "node": "Drop Image in Copy Folder", "type": "main", "index": 0 }]]
+    },
+    "Drop Image in Copy Folder": {
+      "main": [[{ "node": "Send a message", "type": "main", "index": 0 }]]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  }
+}
