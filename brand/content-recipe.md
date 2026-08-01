@@ -263,10 +263,10 @@ These apply to all content regardless of story classification:
 
 These apply regardless of story classification:
 
-- **Fabricated temporal references** — phrases like "last Tuesday," "last week," "a few weeks ago" that imply a recent real client interaction. Permitted only in `[REAL-ANONYMIZED]` stories where the experience inventory confirms a real engagement in that timeframe.
-- **Fabricated relationship-duration claims** — phrases like "a client I've worked with for five years." Permitted only when the experience inventory confirms the claimed duration.
-- **Fabricated pseudonymous characters** — assigning names or identity markers specific enough to imply a real person, when no corresponding verified story exists. Permitted in `[ILLUSTRATIVE]` examples only if explicitly introduced as hypothetical.
-- **Unverified experience-pattern claims** — phrases like "in my experience working with [AUDIENCE]," "more than half my clients." Permitted only when the experience inventory confirms the claimed pattern.
+- **Fabricated temporal references**: phrases like "last Tuesday," "last week," "a few weeks ago" that imply a recent real client interaction. Permitted only in `[REAL-ANONYMIZED]` stories where the experience inventory confirms a real engagement in that timeframe.
+- **Fabricated relationship-duration claims**: phrases like "a client I've worked with for five years." Permitted only when the experience inventory confirms the claimed duration.
+- **Fabricated pseudonymous characters**: assigning names or identity markers specific enough to imply a real person, when no corresponding verified story exists. Permitted in `[ILLUSTRATIVE]` examples only if explicitly introduced as hypothetical.
+- **Unverified experience-pattern claims**: phrases like "in my experience working with [AUDIENCE]," "more than half my clients." Permitted only when the experience inventory confirms the claimed pattern.
 
 ### When the Inventory Is Unpopulated
 
@@ -480,7 +480,7 @@ week-1-clip-1.md through week-1-clip-N.md
 
 ### Social Post Expansion
 
-When the plan briefs fewer posts than a channel's `posts_per_week` requires, create additional posts by: isolating individual talking points from anchor content as standalone insights, creating story-driven variations, adding action prompts or engagement questions, and building week-to-week narrative continuity. Never pad with filler just to hit a number — if a channel's format allows a flexible count (e.g. clips), let it flex instead.
+When the plan briefs fewer posts than a channel's `posts_per_week` requires, create additional posts by: isolating individual talking points from anchor content as standalone insights, creating story-driven variations, adding action prompts or engagement questions, and building week-to-week narrative continuity. Never pad with filler just to hit a number; if a channel's format allows a flexible count (e.g. clips), let it flex instead.
 
 ### File Structure
 

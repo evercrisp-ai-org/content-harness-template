@@ -4,7 +4,7 @@
     "name": "evercrisp.ai"
   },
   "metadata": {
-    "description": "A generic, client-agnostic content-production harness — fork this repo per client, run /onboard, and get a full weekly content pipeline for whatever channels that client wants.",
+    "description": "A generic, client-agnostic content production harness. Fork this repo per client, run /onboard, and get a full weekly content pipeline for whatever channels that client wants.",
     "version": "1.0.0"
   },
   "plugins": [

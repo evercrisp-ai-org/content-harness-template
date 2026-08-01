@@ -1,6 +1,6 @@
 # Brand & Voice Alignment Guide
 
-> This guide explains how to turn the `onboard` skill's interview answers into a fully configured content production system. It covers voice-profile generation, AI-giveaway detection, channel configuration, compliance setup, example transformations, and multi-voice considerations. Most of Section 1 (populating `brand_config.json`) and part of Section 2 (Stage 1 of the voice profile) happen automatically as part of running `/onboard` — this guide is the deeper reference for what `/onboard` does and how to go further by hand if needed.
+> This guide explains how to turn the `onboard` skill's interview answers into a fully configured content production system. It covers voice-profile generation, AI-giveaway detection, channel configuration, compliance setup, example transformations, and multi-voice considerations. Most of Section 1 (populating `brand_config.json`) and part of Section 2 (Stage 1 of the voice profile) happen automatically as part of running `/onboard`. This guide is the deeper reference for what `/onboard` does and how to go further by hand if needed.
 
 **Prerequisite:** Run the `onboard` skill (Stage 1) before working through this guide.
 
@@ -207,7 +207,7 @@ From onboard interview Section 7, add your compliance constraints to:
 1. **`brand/content-recipe.md`** -- Compliance Guardrails section (§5.1):
    - Replace `[COMPLIANCE_RULE_1]`, `[COMPLIANCE_RULE_2]`, etc. with your actual rules.
    - Replace `[REQUIRED_DISCLAIMERS]` with any required disclaimer language.
-   - Same section's Prohibited Patterns list is where automated checks (`validate`, `voice-check`) actually look — make sure any new compliance rule that should trigger an automated check is reflected there too.
+   - Same section's Prohibited Patterns list is where automated checks (`validate`, `voice-check`) actually look. Make sure any new compliance rule that should trigger an automated check is reflected there too.
 
 2. **`brand/brand_config.json`** -- `compliance` key:
    - List compliance rules and required disclaimers.
@@ -328,7 +328,7 @@ The three enforcement layers work together:
 
 1. **Voice profile + content recipe:** The AI reads these before drafting and self-corrects during generation.
 2. **Quality Checklist:** Every draft includes a checklist that the AI evaluates against.
-3. **The `validate` and `voice-check` skills:** Re-derive every check independently rather than trusting a draft's own self-reported checklist — automated gates that flag violations (em dashes, integrity issues, date misalignment) before a piece is considered finished.
+3. **The `validate` and `voice-check` skills:** Re-derive every check independently rather than trusting a draft's own self-reported checklist. These are automated gates that flag violations (em dashes, integrity issues, date misalignment) before a piece is considered finished.
 
 ### 8.4 Recursive Learning Closes the Loop
 

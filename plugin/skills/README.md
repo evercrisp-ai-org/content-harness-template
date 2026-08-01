@@ -2,13 +2,13 @@
 
 This folder is the plugin's skill source. Each subfolder is one skill (`SKILL.md`), invokable in Claude Code / Cowork by name.
 
-For local dev-testing outside a Cowork plugin install, symlink or copy this folder to `.claude/skills/` in whatever project you're working in, and keep the two in sync — Capable Wealth's own deployment hit a real bug where a Cowork plugin cache served stale skill content after the two copies drifted out of sync. Bump the plugin version (`plugin/.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json`) whenever skill content changes, to force Cowork's plugin cache to refresh.
+For local dev-testing outside a Cowork plugin install, symlink or copy this folder to `.claude/skills/` in whatever project you're working in, and keep the two in sync. Capable Wealth's own deployment hit a real bug where a Cowork plugin cache served stale skill content after the two copies drifted out of sync. Bump the plugin version (`plugin/.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json`) whenever skill content changes, to force Cowork's plugin cache to refresh.
 
 ## The eight skills
 
 | Skill | Role | Trigger |
 |-------|------|---------|
-| `onboard` | **First-run setup.** Interviews the voice owner/stakeholder (org, voice, audience, channels + frequency, visual brand, compliance, key dates, language rules) and writes the answers into `brand_config.json` and the brand docs, including `channel_config` — which channels `generate-batch` produces for. Voice-profile completion runs as a second stage once sample content exists in `samples/`. | Once per client; re-run to change channels/config |
+| `onboard` | **First-run setup.** Interviews the voice owner/stakeholder (org, voice, audience, channels + frequency, visual brand, compliance, key dates, language rules) and writes the answers into `brand_config.json` and the brand docs, including `channel_config`, which channels `generate-batch` produces for. Voice-profile completion runs as a second stage once sample content exists in `samples/`. | Once per client; re-run to change channels/config |
 | `generate-batch` | **The engine.** Produces a full week (or multi-week range) of content for every channel `channel_config` marks active, enforces every production rule while drafting, runs the gates, writes files, exports the Excel summary, and publishes every active channel's cleaned copy into Google Drive for review. Refuses to run until `onboard` has filled in `brand_config.json`. | Weekly |
 | `validate` | 3-rule gate (integrity + date alignment + relevance) → Green/Yellow/Red per piece + the §13 checklist. | Auto inside generate-batch; or on demand |
 | `linkedin-check` | Runs this client's own LinkedIn rulebook (`rules/linkedin-content-creation-guidelines.md` Section 6) against a post; pass/fail, fixes, word count, opening device. Only relevant if LinkedIn is active. | Auto inside generate-batch; or on demand |

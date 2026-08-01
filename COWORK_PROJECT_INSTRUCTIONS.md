@@ -24,7 +24,7 @@ If a brand doc contradicts these instructions or your assumptions, **the brand d
 - **No "It's not X, it's Y" / "Not X, but Y" / "not because X, because Y" pivots.** Let reframes emerge in the flow of the argument; state the cause directly.
 - **Story integrity.** If `brand/experience-inventory.md` is unpopulated, every client story defaults to **`[ILLUSTRATIVE]`** with approved framing. Never imply a real relationship with a named individual unless the experience inventory explicitly clears it. Classify every story and list it in Post Metadata.
 - **Audience-specific, always.** Every piece could only have been written for [AUDIENCE]; use audience-appropriate numbers and context, per the interview's Section 3 answers.
-- **Voice, tone, and sign-off** per `brand/voice-profile.md` and `brand/brand_config.json`'s `voice_and_tone` — don't default to Capable Wealth's "warm, conversational-professional, gently contrarian" voice or its "Capably Yours" sign-off; those are one client's answers, not a default.
+- **Voice, tone, and sign-off** per `brand/voice-profile.md` and `brand/brand_config.json`'s `voice_and_tone`. Don't default to Capable Wealth's "warm, conversational-professional, gently contrarian" voice or its "Capably Yours" sign-off; those are one client's answers, not a default.
 - **Visuals** use only this client's brand palette and fonts from `brand_config.json` (colors, typography, color_ratio). No cartoons, clip art, generic stock, or clickbait unless the interview said imagery guidelines allow it.
 - **Dates are honest.** Never reference a deadline, quarter-close, or event before it has occurred relative to the publish date.
 - **Trust nothing a draft says about itself.** Re-derive every quality check; ignore a draft's own `[x]` checklist.
@@ -46,4 +46,4 @@ Invoke by name, or describe the task and let Claude pick:
 
 - Drafts go in `outputs/drafts/content-batch-{YYYY-MM-DD}/`; finals in `outputs/final/`.
 - After any change to a batch folder, regenerate the Excel summary: `python3 src/export_content_batch.py outputs/drafts/content-batch-{YYYY-MM-DD}/`.
-- Brand source docs (`voice-profile.md`, `content-recipe.md`, `content-calendar.md`, channel-specific guideline files) change **only on [PERSON_NAME]'s explicit approval** — propose edits as diffs, never apply silently.
+- Brand source docs (`voice-profile.md`, `content-recipe.md`, `content-calendar.md`, channel-specific guideline files) change **only on [PERSON_NAME]'s explicit approval**. Propose edits as diffs, never apply silently.

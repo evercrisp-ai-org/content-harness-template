@@ -447,7 +447,7 @@ def build_drive_publish_plan(batch_folder: str) -> List[Dict]:
     with the cleaned copy Doc and the asset file(s) sitting flat together in
     that one folder. A new folder (the -N suffix on the platform name) is
     only created when a later, distinct piece of the SAME platform lands on
-    the same date — copy and its own asset never split into separate
+    the same date. Copy and its own asset never split into separate
     subfolders. The day folder carries a 1-5 (Mon-Fri) numeric prefix so Drive
     sorts the week's days in the right order (DDMMYYYY-DAY alone sorts wrong,
     e.g. Monday's 31082026 sorts after Tuesday's 01092026).
@@ -478,7 +478,7 @@ def build_drive_publish_plan(batch_folder: str) -> List[Dict]:
     # Group by (date, platform), then assign a stable platform-folder suffix
     # within each group so colliding pieces (same date, same platform) get
     # distinct folders. Different platforms on the same date never collide
-    # with each other — each gets its own platform folder regardless.
+    # with each other; each gets its own platform folder regardless.
     by_date_platform: Dict = {}
     for entry in entries:
         by_date_platform.setdefault((entry["publish_date"], entry["platform"]), []).append(entry)

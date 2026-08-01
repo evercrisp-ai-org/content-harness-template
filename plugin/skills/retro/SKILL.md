@@ -3,7 +3,7 @@ name: retro
 description: Weekly recursive-learning pass. Reads the revision requests captured in brand/corrections-log.md, clusters them by rule-candidate, and once a preference has recurred 3 or more times proposes a diff to the relevant brand doc (voice-profile, content-recipe, or a channel-specific rules file) for the client's approval. Improves the source-of-truth the other skills read, so the system needs fewer corrections over time. Use weekly (e.g. "run the retro", "/retro"), after a week of content work, before the next batch.
 ---
 
-# Retro — Weekly Recursive Learning Pass
+# Retro: Weekly Recursive Learning Pass
 
 This is the only skill that improves the **source-of-truth** itself. The others produce and gate content; `retro` makes the brand docs they read smarter by learning from the corrections the client made during the week.
 
@@ -15,8 +15,8 @@ None required. If given a date range, scope the pass to entries in that range; o
 
 ## Load
 
-- `brand/corrections-log.md` — the behavioral log (the only required input).
-- `brand/voice-profile.md`, `brand/content-recipe.md`, any active channel's rulebook under `rules/` — the brand docs that learnings get proposed into, so a proposal lands in the right place and does not duplicate or contradict an existing rule.
+- `brand/corrections-log.md`: the behavioral log (the only required input).
+- `brand/voice-profile.md`, `brand/content-recipe.md`, any active channel's rulebook under `rules/`: the brand docs that learnings get proposed into, so a proposal lands in the right place and does not duplicate or contradict an existing rule.
 
 ## The pass
 
@@ -32,7 +32,7 @@ None required. If given a date range, scope the pass to entries in that range; o
 4. **Locate the right home for each confirmed candidate.** Decide which brand doc the rule belongs in:
    - Voice, tone, phrasing, banned language → `brand/voice-profile.md` (or `brand_config.json` language lists).
    - Content structure, templates, draft format → `brand/content-recipe.md`.
-   - Channel-specific structure or hooks (e.g. LinkedIn) → that channel's file under `rules/`. This is also where a placeholder rulebook (e.g. a fresh `rules/linkedin-content-creation-guidelines.md` Section 6 still full of `[Rule N — pending performance data]` markers) gets filled in for real, once enough corrections/performance data exist to confirm a rule.
+   - Channel-specific structure or hooks (e.g. LinkedIn) → that channel's file under `rules/`. This is also where a placeholder rulebook (e.g. a fresh `rules/linkedin-content-creation-guidelines.md` Section 6 still full of `[Rule N, pending performance data]` markers) gets filled in for real, once enough corrections/performance data exist to confirm a rule.
    - Cross-cutting production rules → `content-recipe.md` or `content-calendar.md`, whichever section they extend.
    Check the target doc first; if the rule already exists, note "reinforces existing rule" instead of proposing a duplicate. If a confirmed candidate **contradicts** an existing rule, flag the conflict for the client rather than silently overriding.
 
@@ -45,7 +45,7 @@ None required. If given a date range, scope the pass to entries in that range; o
 A weekly retro report:
 
 ```
-RETRO — week of <date range>
+RETRO: week of <date range>
 
 CONFIRMED (proposing changes):
 1. <rule candidate>  (seen N times: <pieces>)

@@ -15,8 +15,8 @@ A week (e.g. `week-21`) or a date. If none is given, infer the next un-produced 
 
 ## Load first (the plan being refreshed)
 
-- The client's editorial/quarterly plan and `brand/content-calendar.md` — the week's scheduled items, deadlines, and static seasonal cycles.
-- `brand/voice-profile.md` and recent `outputs/drafts/content-batch-*` — to keep angles consistent and continue the sequential arc.
+- The client's editorial/quarterly plan and `brand/content-calendar.md`: the week's scheduled items, deadlines, and static seasonal cycles.
+- `brand/voice-profile.md` and recent `outputs/drafts/content-batch-*`, to keep angles consistent and continue the sequential arc.
 
 ## The research pass (for THIS week's items)
 
@@ -30,7 +30,7 @@ For each scheduled item:
 
 ## Sourcing and compliance rules
 
-Read `brand/content-recipe.md`'s compliance section and the onboarding interview's Section 7 answers for how strict this needs to be — a regulated industry (financial, healthcare, legal) needs the following applied strictly; a lower-stakes niche may need a lighter pass:
+Read `brand/content-recipe.md`'s compliance section and the onboarding interview's Section 7 answers for how strict this needs to be. A regulated industry (financial, healthcare, legal) needs the following applied strictly; a lower-stakes niche may need a lighter pass:
 
 - Prefer **primary, authoritative sources** over secondary blogs or aggregators.
 - **Cite source and date** for every figure or claim you add or change.
