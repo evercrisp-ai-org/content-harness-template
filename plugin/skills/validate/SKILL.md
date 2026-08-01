@@ -13,8 +13,7 @@ A path to a draft file, a path to a `content-batch-*` folder (validate every pie
 
 ## Load first
 
-- `.cursor/rules/content-integrity.mdc`
-- `.cursor/rules/content-date-alignment.mdc`
+- `brand/content-recipe.md` §5.1 (Content Integrity Filter)
 - `brand/content-recipe.md` §5 (Research & Relevance Filter, the Green/Yellow/Red definitions) and §13 (Quality Checklist)
 - `brand/content-calendar.md` (deadlines). For the week → date mapping, use the draft's own Post Metadata `Week:` field as the publish window of record. **Week numbers are an internal sequential index, not ISO week numbers — never infer a date from a standard-calendar week number.**
 - `brand/experience-inventory.md` (to trace `[REAL-ANONYMIZED]` claims; if unpopulated, any real-client framing is a fail)

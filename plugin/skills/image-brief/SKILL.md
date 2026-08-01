@@ -13,7 +13,7 @@ A content piece (path or description) + its channel, OR a batch folder (brief ev
 
 ## Load first
 
-`brand/content-recipe.md` §10 (Visual Asset Guidelines, the image-prompt standard, and any example prompts it contains), `.cursor/rules/content-production-batch.mdc` (Image Type Variety + Image Prompt Variation), and `brand/brand_config.json` (`colors`, `typography`, `imagery`, `social_image_specs`).
+`brand/content-recipe.md` §10 (Visual Asset Guidelines, the image-prompt standard, and any example prompts it contains), and `brand/brand_config.json` (`colors`, `typography`, `imagery`, `social_image_specs`).
 
 ## Palette (exclusive — no other colors)
 
@@ -31,7 +31,7 @@ A vague prompt ("minimalist card") is a failure. Two people generating from your
 
 ## Rotation rules (mandatory — track across the whole week/batch)
 
-The specific counts below are Capable Wealth's original tuning, shown as a worked example of the *kind* of rotation rule this section should hold — read `.cursor/rules/content-production-batch.mdc` for this client's actual rotation rules before applying any of these numbers as fact:
+The specific counts below are Capable Wealth's original tuning, shown as a worked example of the *kind* of rotation rule this section should hold — read `content-recipe.md` §10 for this client's actual rotation rules before applying any of these numbers as fact:
 
 - Max N text-on-block cards (stat/quote) per platform per week; the rest are conceptual photo / infographic / data viz.
 - Minimum count of conceptual photographs and infographics per platform per week, with no repeated subject in the same week.

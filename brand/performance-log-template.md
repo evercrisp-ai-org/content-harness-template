@@ -1,6 +1,6 @@
 # Performance Data Log
 
-> Copy this file to `outputs/performance-logs/log-[YYYY-MM-DD].md` and fill it in with actual metrics from your platform analytics before running a Recursive Learning cycle (content-recipe.md Section 11, START_HERE.md Session 5).
+> Copy this file to `outputs/performance-logs/log-[YYYY-MM-DD].md` and fill it in with actual metrics from your platform analytics before running a Recursive Learning cycle (content-recipe.md Section 11; run via the `retro` skill).
 
 **Review period:** [Start date] to [End date]
 **Content batch reviewed:** [e.g., content-batch-YYYY-MM-DD]

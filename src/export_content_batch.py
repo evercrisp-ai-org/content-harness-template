@@ -249,7 +249,7 @@ def _extract_content_body(text: str) -> str:
 # piece to Google Drive, so the Doc a reviewer opens reads as plain prose
 # instead of showing literal '#' / '**' characters.
 
-# Weekday each numbered post publishes on (per content-production-batch.mdc).
+# Weekday each numbered post publishes on (per content-recipe.md & the client's stated cadence).
 PUBLISH_DAY_BY_PLATFORM_AND_NUM = {
     ("LinkedIn", 1): 1,   # Tuesday (hook)
     ("LinkedIn", 2): 2,   # Wednesday (story)

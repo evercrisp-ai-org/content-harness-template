@@ -10,7 +10,7 @@ This repo ships with **zero clients configured**. Fork it per client, run the `o
 - **Brand docs** (`brand/`): placeholder voice profile, content recipe, content calendar, `brand_config.json` (colors, fonts, voice/tone, compliance, and `channel_config` — which channels are active and how often). `onboard` fills these in from a conversational interview.
 - **A Python rendering/export pipeline** (`src/`): Excel batch summaries, Google Drive publish-plan generation, PDF/image lead-magnet rendering — all driven by `brand_config.json`, not hardcoded to any client.
 - **Automation templates** (`automation/`): an n8n image-generation workflow and a Drive folder-ID config, both `REPLACE_ME_`-templated per client.
-- **Quality gates** (`.cursor/rules/`): content integrity, date alignment, and batch production rules, enforced automatically inside `generate-batch`.
+- **Quality gates** (`brand/content-recipe.md` §5.1 and `brand/content-calendar.md`'s Date Alignment Rules): content integrity, date alignment, and batch production rules, enforced automatically inside `generate-batch`.
 
 ## Quick start (for a new client)
 
@@ -23,9 +23,8 @@ This repo ships with **zero clients configured**. Fork it per client, run the `o
 
 ```
 plugin/                  the installable Cowork plugin (8 skills)
-brand/                   placeholder brand docs — onboard fills these in
+brand/                   placeholder brand docs — onboard fills these in; content-recipe.md and content-calendar.md also hold the quality-gate rules (content integrity, date alignment, production standards)
 rules/                   channel-specific rulebooks (e.g. LinkedIn) — placeholder until performance data exists
-.cursor/rules/           quality-gate rules for Cursor / Claude Code
 automation/              n8n workflow template + Drive folder-ID template
 src/                     Python export/render pipeline
 samples/                 put 10-30+ real content samples here for voice-profile generation (Stage 2 of onboard)

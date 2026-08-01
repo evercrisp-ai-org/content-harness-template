@@ -11,7 +11,7 @@ You are producing one week of [ORG_NAME] content for [PERSON_NAME] — per `bran
 
 The user gives you a week (e.g. `week-21`, `21`, or a date) or a range of weeks. Optionally a theme override. If no week is given, ask which week, or infer the next un-produced week from the most recent folder in `outputs/drafts/`.
 
-**A batch may span multiple weeks.** If the user names a range, produce each week in turn while maintaining **ONE running ledger across the whole batch**. The ledger is what makes cross-week rules enforceable; carry it through every drafting and image-brief step — the specific rules it tracks (banned opening templates, rhetorical-device rotation, image-type/color rotation, subject rotation) live in `content-recipe.md` and `.cursor/rules/content-production-batch.mdc`; read those before assuming any specific rotation rule.
+**A batch may span multiple weeks.** If the user names a range, produce each week in turn while maintaining **ONE running ledger across the whole batch**. The ledger is what makes cross-week rules enforceable; carry it through every drafting and image-brief step — the specific rules it tracks (banned opening templates, rhetorical-device rotation, image-type/color rotation, subject rotation) live in `content-recipe.md`; read it before assuming any specific rotation rule.
 
 ## Step 0 — Onboarding preflight (always, before Step 1)
 
@@ -33,7 +33,7 @@ Read these in full. They are the single source of truth:
 - Any channel-specific rulebook under `rules/` (e.g. `rules/linkedin-content-creation-guidelines.md`) for every active channel that has one.
 - `brand/experience-inventory.md` — read it. **If unpopulated, every client story defaults to `[ILLUSTRATIVE]` with approved framing — no real-client implications.**
 
-Also load the enforcement rules in `.cursor/rules/` so you apply them as you write, not after.
+Also load `content-recipe.md` §5.1 (Content Integrity) and `content-calendar.md`'s Date Alignment Rules so you apply them as you write, not after.
 
 ## Step 2 — Resolve the week to dates
 
@@ -60,7 +60,7 @@ Every file follows the Standard Draft File Format (recipe §12):
 
 - **Channel-specific rulebooks:** for every active channel with a file under `rules/` (e.g. LinkedIn), every post in that channel obeys every rule in that file — read it fresh each batch, don't rely on memory of a prior client's rules.
 - **Opening-line variation:** no rhetorical device repeats on the same channel in the same week; banned opening templates are whatever `content-recipe.md` / the corrections log has flagged for this client, not a fixed list. Track all of this in the running ledger.
-- **Image-type rotation:** per `content-recipe.md` §10 and the batch rule in `.cursor/rules/`. Do not hand-write the prompts here — Step 5 delegates them.
+- **Image-type rotation:** per `content-recipe.md` §10. Do not hand-write the prompts here — Step 5 delegates them.
 - **Integrity:** classify every story `[REAL-ANONYMIZED]` / `[ILLUSTRATIVE]` / `[GENERAL-PRINCIPLE]` and list them in Post Metadata. Inventory unpopulated → all `[ILLUSTRATIVE]`.
 - **Voice:** apply every hard rule in `voice-profile.md` and `brand_config.json`'s `voice_and_tone.language_to_avoid` — these are this client's specific rules, not a universal default.
 

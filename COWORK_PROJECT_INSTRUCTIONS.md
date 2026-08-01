@@ -13,7 +13,7 @@ Always read the relevant brand docs first; never produce content from memory:
 - `brand/content-recipe.md`: HOW content is made (templates §7, image standard §10, draft format §12, quality checklist §13).
 - `brand/content-calendar.md` + editorial/quarterly plans: WHEN / what's planned.
 - `brand/brand_config.json`: palette, fonts, `voice_and_tone.language_to_avoid`, and `channel_config` (which channels are active).
-- `rules/linkedin-content-creation-guidelines.md` (if LinkedIn is an active channel) and `.cursor/rules/*.mdc`: the enforcement rules.
+- `rules/linkedin-content-creation-guidelines.md` (if LinkedIn is an active channel): channel-specific enforcement rules. Content integrity lives in `content-recipe.md` §5.1; date alignment in `content-calendar.md`'s Date Alignment Rules.
 - `brand/experience-inventory.md`: client-story sourcing.
 
 If a brand doc contradicts these instructions or your assumptions, **the brand doc wins.**

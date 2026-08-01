@@ -38,8 +38,7 @@ Running alongside this, the recursive learning loop closes over time: every revi
 
 The skills are prompt-native: they read the brand docs directly rather than duplicating them, so updating a brand doc updates every skill.
 
-- `brand/voice-profile.md`, `brand/content-recipe.md`, `brand/content-calendar.md`, the client's editorial/quarterly plans
+- `brand/voice-profile.md`, `brand/content-recipe.md` (§5.1 Content Integrity, §7 channel templates, §12/§13 production standards), `brand/content-calendar.md` (timing + Date Alignment Rules), the client's editorial/quarterly plans
 - `brand/brand_config.json` (palette, fonts, `voice_and_tone.language_to_avoid`, `channel_config`)
 - `rules/*.md` (any channel-specific rulebook this client has)
-- `.cursor/rules/content-production-batch.mdc`, `content-integrity.mdc`, `content-date-alignment.mdc`
 - `brand/experience-inventory.md` (unpopulated → all stories default to `[ILLUSTRATIVE]`)

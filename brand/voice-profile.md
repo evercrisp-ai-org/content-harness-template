@@ -2,7 +2,7 @@
 
 > This document captures the essence of [PERSON_NAME]'s voice, philosophy, writing style, and approach as distilled from sample content. It is the definitive reference for WHO [PERSON_NAME] is as a communicator. Any content produced under the [ORG_NAME] brand should be evaluated against this profile.
 
-**Status:** Unpopulated template. Run Session 1 from START_HERE.md to generate this profile from sample content.
+**Status:** Unpopulated template. Ask the `onboard` skill to run Stage 2 to generate this profile from sample content.
 
 **Companion documents:**
 - [content-recipe.md](content-recipe.md): HOW content gets produced, including voice calibration for [AUDIENCE]

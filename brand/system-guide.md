@@ -2,7 +2,7 @@
 
 > This document explains the entire content system in plain language. It walks you through what each document does, how the pieces fit together, and exactly what you need to do to keep the system running and improving. You do not need to use any software to follow this guide.
 
-**Companion document:** The technical command center for AI-assisted content production lives in `START_HERE.md`. That file is for your content operator (or for use in Cursor). This guide is for you.
+**Companion document:** The technical walkthrough for standing up and operating this system lives in `docs/CLIENT_ONBOARDING_GUIDE.md`. That file is for your content operator, run through Claude Code / Claude Cowork. This guide is for you.
 
 ---
 

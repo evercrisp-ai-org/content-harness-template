@@ -38,6 +38,33 @@ These are predictable, recurring events that affect [AUDIENCE]. Content should a
 - [Season 2]: [What happens]
 - [Season 3]: [What happens]
 
+### Date Alignment Rules
+
+Content must be temporally honest: it must never reference an event, deadline, or period as having occurred if the publication week predates it. `validate` and `generate-batch` enforce this on every piece.
+
+**Fiscal quarter boundaries** (replace with this client's actual fiscal year if not calendar-year):
+- Q1 closes March 31
+- Q2 closes June 30
+- Q3 closes September 30
+- Q4 closes December 31
+
+Never reference quarterly data as "in," "available," or "complete" before the quarter closes. Use forward-looking framing: "as Q[N] wraps up," "before Q[N] closes."
+
+**Date-sensitive content rules:**
+1. Deadline-referenced content should publish 2-4 weeks before the deadline.
+2. Post-deadline content (e.g. "the window just opened") must not publish before the deadline date.
+3. Quarterly review content (e.g. "your Q[N] numbers are in") must not publish before the quarter has closed.
+4. Event-timed content should align with actual event dates.
+
+**When dates shift:** if publication dates are adjusted, audit every content piece in the affected range for titles/body text that reference specific timing, and Quality Checklist entries referencing specific date ranges.
+
+**Validation checklist** (part of every piece's Quality Checklist, per `content-recipe.md` §13):
+- [ ] No claims that a period has closed before its actual close date
+- [ ] No references to deadlines as "next week" unless publication is actually the week before
+- [ ] No post-event framing used before the event has occurred
+- [ ] Forward-looking framing used for events that fall after the publication week
+- [ ] All "this week" and "next week" references are accurate for the publication date range
+
 ---
 
 ## Layer 2: Dynamic Research Checkpoints
@@ -46,7 +73,7 @@ Monthly research scans to catch changes that affect content relevance.
 
 ### Monthly Scan Checklist
 
-Run this checklist at the start of each month (or use the Monthly Research Scan prompt in START_HERE.md):
+Run this checklist at the start of each month, or by invoking the `research-scan` skill:
 
 - [ ] Industry developments affecting [AUDIENCE]
 - [ ] Regulatory or legislative changes

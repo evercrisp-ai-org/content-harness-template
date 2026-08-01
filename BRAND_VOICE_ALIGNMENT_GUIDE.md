@@ -185,7 +185,7 @@ In `brand/content-recipe.md`, the channel-related sections reference `channel_co
 
 ### 4.3 Update the Batch Rule
 
-In `.cursor/rules/content-production-batch.mdc`, update the weekly volume table to match your channel configuration.
+In `brand/content-recipe.md`'s Content Production Batch Standards section, update the weekly volume table to match your channel configuration.
 
 ### 4.4 Repurposing Flows
 
@@ -204,14 +204,12 @@ Podcast script → 2-5 short-form clips (YouTube Shorts / Instagram Reels)
 
 From onboard interview Section 7, add your compliance constraints to:
 
-1. **`brand/content-recipe.md`** -- Compliance Guardrails section:
+1. **`brand/content-recipe.md`** -- Compliance Guardrails section (§5.1):
    - Replace `[COMPLIANCE_RULE_1]`, `[COMPLIANCE_RULE_2]`, etc. with your actual rules.
    - Replace `[REQUIRED_DISCLAIMERS]` with any required disclaimer language.
+   - Same section's Prohibited Patterns list is where automated checks (`validate`, `voice-check`) actually look — make sure any new compliance rule that should trigger an automated check is reflected there too.
 
-2. **`.cursor/rules/content-integrity.mdc`** -- Compliance section:
-   - Add any rules that should trigger automated checks.
-
-3. **`brand/brand_config.json`** -- `compliance` key:
+2. **`brand/brand_config.json`** -- `compliance` key:
    - List compliance rules and required disclaimers.
 
 ### 5.2 Quality Checklist
@@ -330,7 +328,7 @@ The three enforcement layers work together:
 
 1. **Voice profile + content recipe:** The AI reads these before drafting and self-corrects during generation.
 2. **Quality Checklist:** Every draft includes a checklist that the AI evaluates against.
-3. **Cursor rules:** Automated rules that flag violations in draft files (em dashes, integrity issues, date misalignment).
+3. **The `validate` and `voice-check` skills:** Re-derive every check independently rather than trusting a draft's own self-reported checklist — automated gates that flag violations (em dashes, integrity issues, date misalignment) before a piece is considered finished.
 
 ### 8.4 Recursive Learning Closes the Loop
 
@@ -340,18 +338,6 @@ After content is published and performance data is collected:
 3. The cycle updates the content recipe, calendar, and voice profile based on what actually worked with the audience.
 
 This is how the system gets better over time. Without performance data, it stays static.
-
-### 8.5 Prompt Snippets for Cursor (optional, non-Claude-Code workflows)
-
-When working in Cursor, always reference the brand documents before drafting:
-
-```
-Read @brand/voice-profile.md and @brand/brand_config.json voice_and_tone section
-before drafting. Check all output against the Quality Checklist in
-@brand/content-recipe.md Section 13 and the language_to_avoid list.
-```
-
-This can be added to `.cursor/rules/` as an always-apply rule if desired.
 
 ---
 

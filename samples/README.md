@@ -1,6 +1,6 @@
 # Sample Content
 
-Place your organization's existing content here. These samples are used to generate the voice profile (Session 1 in START_HERE.md) and serve as the reference standard for voice checks on all future content.
+Place your organization's existing content here. These samples are used to generate the voice profile (via the `onboard` skill's Stage 2) and serve as the reference standard for voice checks on all future content.
 
 ## What to Include
 
@@ -31,4 +31,4 @@ You can organize samples however you prefer (flat list, by channel, by date). Th
 
 ## Updating
 
-Add new samples as the voice evolves. If the voice materially changes (new voice owner, major brand pivot), re-run Session 1 from START_HERE.md to regenerate the voice profile.
+Add new samples as the voice evolves. If the voice materially changes (new voice owner, major brand pivot), ask the `onboard` skill to re-run Stage 2 to regenerate the voice profile.

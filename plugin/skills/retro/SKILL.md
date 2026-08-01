@@ -16,7 +16,7 @@ None required. If given a date range, scope the pass to entries in that range; o
 ## Load
 
 - `brand/corrections-log.md` — the behavioral log (the only required input).
-- `brand/voice-profile.md`, `brand/content-recipe.md`, any active channel's rulebook under `rules/`, `.cursor/rules/*.mdc` — the brand docs that learnings get proposed into, so a proposal lands in the right place and does not duplicate or contradict an existing rule.
+- `brand/voice-profile.md`, `brand/content-recipe.md`, any active channel's rulebook under `rules/` — the brand docs that learnings get proposed into, so a proposal lands in the right place and does not duplicate or contradict an existing rule.
 
 ## The pass
 
@@ -33,7 +33,7 @@ None required. If given a date range, scope the pass to entries in that range; o
    - Voice, tone, phrasing, banned language → `brand/voice-profile.md` (or `brand_config.json` language lists).
    - Content structure, templates, draft format → `brand/content-recipe.md`.
    - Channel-specific structure or hooks (e.g. LinkedIn) → that channel's file under `rules/`. This is also where a placeholder rulebook (e.g. a fresh `rules/linkedin-content-creation-guidelines.md` Section 6 still full of `[Rule N — pending performance data]` markers) gets filled in for real, once enough corrections/performance data exist to confirm a rule.
-   - Cross-cutting production rules → the relevant `.cursor/rules/*.mdc`.
+   - Cross-cutting production rules → `content-recipe.md` or `content-calendar.md`, whichever section they extend.
    Check the target doc first; if the rule already exists, note "reinforces existing rule" instead of proposing a duplicate. If a confirmed candidate **contradicts** an existing rule, flag the conflict for the client rather than silently overriding.
 
 5. **Propose, do not apply.** For each confirmed candidate, produce a concrete **proposed diff**: the exact doc, the exact text to add or change, and a one-line rationale citing how many times and on which pieces it recurred. Present these as proposals. Do **not** edit any brand doc directly. Brand docs change only on the client's explicit approval.
